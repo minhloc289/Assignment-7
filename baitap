@@ -1,0 +1,63 @@
+// cau b
+#include <iostream>
+#include <math.h>
+#define MAX 100
+using namespace std;
+
+void Nhap(int* a, int& n) {
+	for (int i = 0; i < n; i++) {
+		cin >> a[i];
+	}
+}
+
+bool Kiemtra(int n) {
+	int i = 1;
+	if (n < 1)
+		return false;
+	while (i * i <= n) {
+		if (i * i == n)
+			return true;
+		i++;
+	}
+	return false;
+}
+
+void tinhtong(int* a, int n) {
+	int s = 0;
+	for (int i = 0; i < n; i++) {
+		if (Kiemtra(a[i]) == true && a[i] % 2 == 0) {
+			s += a[i];
+		}
+	} cout << s;
+}
+
+int main() {
+	int a[MAX];
+	int n;
+	cin >> n;
+	Nhap(a, n);
+	tinhtong(a, n);
+}
+
+// cau a
+
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+	int x;
+	cout << "so tien can gui: ";
+	do {
+		cin >> x;
+		if (x < 0) {
+			cout << "So tien khong duoi 0 dong!";
+		}
+	} while (x < 0);
+	int p, s;
+	p = x + (float)((x * 0.5)) / 100; // lãi suất 1 tháng
+	s = (float)100000000 / p;
+	cout << "Tai khoan co 100 trieu sau " << fixed << setprecision(2) << s << " thang."; // làm tròn
+	return 0;
+}
